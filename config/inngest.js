@@ -15,7 +15,7 @@ export const syncUserCreation = inngest.createFunction(
     const { id, first_name, last_name, email_addresses, image_url } = data;
     const userData = {
       _id: id,
-      name: `${first_name} ${last_name}`,
+      name: first_name+' '+last_name,
       email: email_addresses[0]?.email_address,
       imageUrl: image_url,
     };
