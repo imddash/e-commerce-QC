@@ -1,12 +1,13 @@
 import { serve } from "inngest/next";
-import {
-  syncUserCreation,
-  syncUserUpdate,
-  syncUserDeletion
-} from "@/config/inngest";
+import { inngest, syncUserCreation, syncUserUpdate, syncUserDeletion } from "@/config/inngest";
 
-export const { GET, POST } = serve("Quickcart Inngest Functions", [
-  syncUserCreation,
-  syncUserUpdate,
-  syncUserDeletion
-]);
+// Create an API that serves zero functions
+export const { GET, POST, PUT } = serve({
+  client: inngest,
+  functions: [
+    syncUserCreation,
+    syncUserUpdate,
+    syncUserDeletion
+
+  ],
+});
